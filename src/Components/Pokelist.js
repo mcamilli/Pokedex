@@ -6,7 +6,7 @@ function Pokelist () {
     const [allPokemons, setAllPokemons] = useState ([]);
 
     const getAllPokemons = async () => {
-        const res = await fetch("http://pokeapi.co/api/v2/pokemon?limit=659&offset=0");
+        const res = await fetch("http://pokeapi.co/api/v2/pokemon?limit=150&offset=0");
         const data = await res.json();
 
         function createPokemonObject(results) {
@@ -30,14 +30,15 @@ function Pokelist () {
                     <div className="all-container">
                         {allPokemons.map((pokemonStats) => (
                             <PokemonCard
-                            key={pokemonStats.id}
+                            key={pokemonStats.name}
                             id={pokemonStats.id}
                             image={pokemonStats.sprites.other["official-artwork"].front_default}
                             name={pokemonStats.name.replace(/^./, (str) => str. toUpperCase())}
                             type={pokemonStats.types[0].type.name}
                             weight={pokemonStats.weight}
                             height={pokemonStats.height}
-                            status={pokemonStats.stats.map((stat) => stat.base_stat).slice(0,3)}
+                            stats={pokemonStats.stats.map((stat) => stat.base_stat).slice(0,3)}
+                            statsName={pokemonStats.stats.map((stat) => stat.stat.name).slice(0,3)}
                             />
                         ))}
 
