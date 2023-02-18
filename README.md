@@ -1,6 +1,6 @@
 Pokedex
 
-- Using reactJs and PokeApi
+- Using ReactJs and PokeApi
 - !surge: https://joyous-minute.surge.sh/
 
 
